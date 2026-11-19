@@ -1,0 +1,30 @@
+# Local Redmine 6.1.5 with this plugin mounted at plugins/mcp_redmine (development only).
+# Usage: docker compose up -d  ->  http://localhost:3000 (admin/admin)
+name: mcp-redmine-dev
+
+services:
+  redmine:
+    image: redmine:6.1.5
+    ports:
+      - "3000:3000"
+    environment:
+      REDMINE_DB_POSTGRES: db
+      REDMINE_DB_USERNAME: redmine
+      REDMINE_DB_PASSWORD: redmine
+      REDMINE_SECRET_KEY_BASE: dev-only-secret
+      REDMINE_PLUGINS_MIGRATE: "1"
+    volumes:
+      - .:/usr/src/redmine/plugins/mcp_redmine
+    depends_on:
+      - db
+
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: redmine
+      POSTGRES_PASSWORD: redmine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:

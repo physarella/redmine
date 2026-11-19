@@ -1,0 +1,7 @@
+en:
+  mcp_redmine_label_enabled: Enable MCP endpoint
+  mcp_redmine_label_response_format: Response format
+  mcp_redmine_label_request_instructions: Instructions for the model
+  mcp_redmine_text_endpoint: "MCP clients connect to %{url}"
+  mcp_redmine_text_request_instructions: "Appended to the description of the redmine_request tool (e.g. use Textile, common project ids, required custom fields)."
+  mcp_redmine_text_rest_api_disabled: "The REST API is disabled. Enable it in Administration > Settings > API, otherwise the MCP endpoint stays off."

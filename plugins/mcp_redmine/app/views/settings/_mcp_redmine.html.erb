@@ -1,0 +1,18 @@
+<% unless Setting.rest_api_enabled? %>
+  <p class="warning"><%= l(:mcp_redmine_text_rest_api_disabled) %></p>
+<% end %>
+<p>
+  <label for="settings_enabled"><%= l(:mcp_redmine_label_enabled) %></label>
+  <%= hidden_field_tag 'settings[enabled]', '0' %>
+  <%= check_box_tag 'settings[enabled]', '1', @settings['enabled'] == '1' %>
+  <em class="info"><%= l(:mcp_redmine_text_endpoint, url: "#{home_url.chomp('/')}/mcp") %></em>
+</p>
+<p>
+  <label for="settings_response_format"><%= l(:mcp_redmine_label_response_format) %></label>
+  <%= select_tag 'settings[response_format]', options_for_select(%w[yaml json], @settings['response_format']) %>
+</p>
+<p>
+  <label for="settings_request_instructions"><%= l(:mcp_redmine_label_request_instructions) %></label>
+  <%= text_area_tag 'settings[request_instructions]', @settings['request_instructions'], rows: 12, class: 'wiki-edit' %>
+  <em class="info"><%= l(:mcp_redmine_text_request_instructions) %></em>
+</p>

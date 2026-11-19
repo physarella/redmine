@@ -1,0 +1,7 @@
+# local deploy files (secrets, instance-specific instructions)
+deploy/
+
+# tools and editors
+claude-artifacts/
+.playwright-mcp/
+.vscode/
